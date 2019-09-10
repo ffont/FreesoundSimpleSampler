@@ -13,6 +13,10 @@
 			isa = PBXBuildFile;
 			fileRef = CB94DF7830019EC51F4B80FD;
 		};
+		B0F657A2BCBD8A3ECD6C5819 = {
+			isa = PBXBuildFile;
+			fileRef = 35D62642F86FD45DC59CE52E;
+		};
 		921D2463200CC35203158168 = {
 			isa = PBXBuildFile;
 			fileRef = E7FA717B66493973EB3BCD8E;
@@ -108,6 +112,10 @@
 		A2F98EA7E244FECD5A90658B = {
 			isa = PBXBuildFile;
 			fileRef = 5CEAEDA2377E1E7E3B499B18;
+		};
+		CE3F47AC65FE4ED83E15998A = {
+			isa = PBXBuildFile;
+			fileRef = BD3736E4251BED5FCB54A99D;
 		};
 		307C8E49485BDF8B8811F1A6 = {
 			isa = PBXBuildFile;
@@ -252,12 +260,12 @@
 			path = "../../JuceLibraryCode/include_juce_audio_formats.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		49A10EDC9678E69CC20DF181 = {
+		4A37C4108BD50566D7941C31 = {
 			isa = PBXFileReference;
-			lastKnownFileType = wrapper.framework;
-			name = CoreAudio.framework;
-			path = System/Library/Frameworks/CoreAudio.framework;
-			sourceTree = SDKROOT;
+			lastKnownFileType = sourcecode.c.h;
+			name = "api_key.h";
+			path = "../../Source/api_key.h";
+			sourceTree = "SOURCE_ROOT";
 		};
 		4A4C251A632CC5210C833AA1 = {
 			isa = PBXFileReference;
@@ -287,12 +295,12 @@
 			path = ../../Source/PluginProcessor.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		5CC7B1BD0DE2468F6AA02CF3 = {
+		5C096C78390EB01736052DD1 = {
 			isa = PBXFileReference;
-			lastKnownFileType = wrapper.framework;
-			name = Accelerate.framework;
-			path = System/Library/Frameworks/Accelerate.framework;
-			sourceTree = SDKROOT;
+			lastKnownFileType = sourcecode.c.h;
+			name = FreesoundSearchComponent.h;
+			path = ../../Source/FreesoundSearchComponent.h;
+			sourceTree = "SOURCE_ROOT";
 		};
 		5CE877652BA56B3EFFEE3718 = {
 			isa = PBXFileReference;
@@ -300,6 +308,41 @@
 			name = "juce_audio_formats";
 			path = "/Users/ffont/Developer/JUCE/modules/juce_audio_formats";
 			sourceTree = "<absolute>";
+		};
+		6DAEC20C8250F7B184973054 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = FreesoundSimpleSampler.vst3;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		CB94DF7830019EC51F4B80FD = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = FreesoundSimpleSampler.component;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		35D62642F86FD45DC59CE52E = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = FreesoundSimpleSampler.app;
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		49A10EDC9678E69CC20DF181 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = CoreAudio.framework;
+			path = System/Library/Frameworks/CoreAudio.framework;
+			sourceTree = SDKROOT;
+		};
+		5CC7B1BD0DE2468F6AA02CF3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = Accelerate.framework;
+			path = System/Library/Frameworks/Accelerate.framework;
+			sourceTree = SDKROOT;
 		};
 		5CEAEDA2377E1E7E3B499B18 = {
 			isa = PBXFileReference;
@@ -342,13 +385,6 @@
 			name = "juce_audio_basics";
 			path = "/Users/ffont/Developer/JUCE/modules/juce_audio_basics";
 			sourceTree = "<absolute>";
-		};
-		6DAEC20C8250F7B184973054 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = FreesoundSimpleSampler.vst3;
-			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
 		6DD72F3D27E6C63113E36584 = {
 			isa = PBXFileReference;
@@ -483,6 +519,13 @@
 			path = ../../Source/FreesoundAPI.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		BD3736E4251BED5FCB54A99D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "include_juce_audio_plugin_client_Standalone.cpp";
+			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		C22E82B2E552BC8415C5AD9C = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -490,12 +533,12 @@
 			path = "/Users/ffont/Developer/JUCE/modules/juce_audio_utils";
 			sourceTree = "<absolute>";
 		};
-		CB94DF7830019EC51F4B80FD = {
+		C73F66D6976CD409A2A2AF84 = {
 			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = FreesoundSimpleSampler.component;
-			sourceTree = "BUILT_PRODUCTS_DIR";
+			lastKnownFileType = text.plist.xml;
+			name = "Info-Standalone_Plugin.plist";
+			path = "Info-Standalone_Plugin.plist";
+			sourceTree = "SOURCE_ROOT";
 		};
 		CD726EBE58090763CB2B15E7 = {
 			isa = PBXFileReference;
@@ -523,6 +566,13 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_audio_plugin_client_AU_1.mm";
 			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm";
+			sourceTree = "SOURCE_ROOT";
+		};
+		DAA42257D9DF6BA7C4875F68 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = defines.h;
+			path = ../../Source/defines.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		DB91DA23594707CDB0CCA169 = {
@@ -591,12 +641,15 @@
 		648B57BC2F92C56B5DD30857 = {
 			isa = PBXGroup;
 			children = (
+				4A37C4108BD50566D7941C31,
+				DAA42257D9DF6BA7C4875F68,
 				7993751E470256EC0FE13E0D,
 				B88C1F63B4957F9ADCDD590F,
 				541B9EFEA7F5D1656F384775,
 				98F790894D2C41EB43313DC7,
 				F7B2748B8292573CB43315AB,
 				8C3E746A11BF0D81DD25BAE5,
+				5C096C78390EB01736052DD1,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -640,6 +693,7 @@
 				E6F09EBF9856496110FD7027,
 				D9ED234C94FE2EF1647DEFF9,
 				5CEAEDA2377E1E7E3B499B18,
+				BD3736E4251BED5FCB54A99D,
 				6520BC3FC0C70896FB907C3E,
 				17D1CAF547E6F694DFD4F38E,
 				78BEAEFD1E42F724164E4C18,
@@ -663,6 +717,7 @@
 			children = (
 				A38F6FFD90A998BFE2624C16,
 				6DD72F3D27E6C63113E36584,
+				C73F66D6976CD409A2A2AF84,
 				85965E8986B70B65A55D525D,
 			);
 			name = Resources;
@@ -693,6 +748,7 @@
 			children = (
 				6DAEC20C8250F7B184973054,
 				CB94DF7830019EC51F4B80FD,
+				35D62642F86FD45DC59CE52E,
 				E7FA717B66493973EB3BCD8E,
 			);
 			name = Products;
@@ -932,6 +988,96 @@
 			};
 			name = Release;
 		};
+		9C1E5E4896AE92673CDD7DE1 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_DEBUG=1",
+					"DEBUG=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"JUCE_APP_VERSION=1.0.0",
+					"JUCE_APP_VERSION_HEX=0x10000",
+					"JucePlugin_Build_VST=0",
+					"JucePlugin_Build_VST3=0",
+					"JucePlugin_Build_AU=0",
+					"JucePlugin_Build_AUv3=0",
+					"JucePlugin_Build_RTAS=0",
+					"JucePlugin_Build_AAX=0",
+					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Unity=0",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/Users/ffont/Developer/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"/Users/ffont/Developer/JUCE/modules",
+					"/Users/ffont/Developer/JUCE/modules/juce_audio_plugin_client",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
+				INFOPLIST_PREPROCESS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = "-lFreesoundSimpleSampler";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MusicTechnologyGroup.FreesoundSimpleSampler;
+				PRODUCT_NAME = "FreesoundSimpleSampler";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		D89F25F3AD911D2A758AF5FA = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
+				DEAD_CODE_STRIPPING = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_NDEBUG=1",
+					"NDEBUG=1",
+					"JUCER_XCODE_MAC_F6D2F4CF=1",
+					"JUCE_APP_VERSION=1.0.0",
+					"JUCE_APP_VERSION_HEX=0x10000",
+					"JucePlugin_Build_VST=0",
+					"JucePlugin_Build_VST3=0",
+					"JucePlugin_Build_AU=0",
+					"JucePlugin_Build_AUv3=0",
+					"JucePlugin_Build_RTAS=0",
+					"JucePlugin_Build_AAX=0",
+					"JucePlugin_Build_Standalone=1",
+					"JucePlugin_Build_Unity=0",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/Users/ffont/Developer/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"../../JuceLibraryCode",
+					"/Users/ffont/Developer/JUCE/modules",
+					"/Users/ffont/Developer/JUCE/modules/juce_audio_plugin_client",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
+				INFOPLIST_PREPROCESS = NO;
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_LDFLAGS = "-lFreesoundSimpleSampler";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MusicTechnologyGroup.FreesoundSimpleSampler;
+				PRODUCT_NAME = "FreesoundSimpleSampler";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
 		DA130BE83EF76F0B7B16106D = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -955,7 +1101,7 @@
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=0",
+					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
 				);
@@ -999,7 +1145,7 @@
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
 					"JucePlugin_Build_AAX=0",
-					"JucePlugin_Build_Standalone=0",
+					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
 				);
@@ -1120,6 +1266,10 @@
 			isa = PBXTargetDependency;
 			target = 701FC263D200192A87882606;
 		};
+		6E457D37FF28759B349070CD = {
+			isa = PBXTargetDependency;
+			target = 8770C5403524ECC45AF22E29;
+		};
 		25CD4D6CE66B05F24F40DB4A = {
 			isa = PBXTargetDependency;
 			target = 0709CBF965696B95EE7E2B98;
@@ -1150,6 +1300,7 @@
 			dependencies = (
 				05DBF67F64C8317D298995B3,
 				E73FA178334F5F9E1F4B59E3,
+				6E457D37FF28759B349070CD,
 				25CD4D6CE66B05F24F40DB4A,
 			);
 			name = "FreesoundSimpleSampler - All";
@@ -1288,6 +1439,67 @@
 			productReference = CB94DF7830019EC51F4B80FD;
 			productType = "com.apple.product-type.bundle";
 		};
+		36B981DB2029AA8BDE46F447 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C1E5E4896AE92673CDD7DE1,
+				D89F25F3AD911D2A758AF5FA,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		65522F9B1DEDE8BD0870AF23 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3DDFA15BC48EE4E9C027B18,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C47263B8B0A87EBCC73756A = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE3F47AC65FE4ED83E15998A,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48EC282714DBB62A5C16C9CB = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B59018ED35688DF27432779A,
+				8C6FC20D59B9905842CD2AB4,
+				FE667CB3FF6670D4261EA171,
+				E7B78FB8146EBBFD117EB289,
+				E5A54CBA2D8B189A9DC32DFF,
+				03464BA4822AA1A1824C3A7A,
+				D9DC9D55D957443E2D36C623,
+				13917C2FB2FE3EC164EA0AE4,
+				02BD231B162A55B3A0AEF7D7,
+				AC2DF39AD55217BD8F2FCF81,
+				DA6912BCEA8BDB8004201263,
+				953091F19AB74BFB270F20F4,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8770C5403524ECC45AF22E29 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36B981DB2029AA8BDE46F447;
+			buildPhases = (
+				65522F9B1DEDE8BD0870AF23,
+				3C47263B8B0A87EBCC73756A,
+				48EC282714DBB62A5C16C9CB,
+			);
+			buildRules = ( );
+			dependencies = (
+				25CD4D6CE66B05F24F40DB4A,
+			);
+			name = "FreesoundSimpleSampler - Standalone Plugin";
+			productName = FreesoundSimpleSampler;
+			productReference = 35D62642F86FD45DC59CE52E;
+			productType = "com.apple.product-type.application";
+		};
 		495A16D81FB092ED00303650 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1338,13 +1550,13 @@
 		DF1C94AABE4A5C665D971F36 = {
 			isa = PBXProject;
 			buildConfigurationList = 8C9F654957B7155FE9BA0F03;
-			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = "Music Technology Group"; TargetAttributes = { DFE91ACB89DCAC2DBF2AFAB8 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };ADDD83E2D3B44C9B29451C75 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };701FC263D200192A87882606 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };0709CBF965696B95EE7E2B98 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = "Music Technology Group"; TargetAttributes = { DFE91ACB89DCAC2DBF2AFAB8 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };ADDD83E2D3B44C9B29451C75 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };701FC263D200192A87882606 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };8770C5403524ECC45AF22E29 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };0709CBF965696B95EE7E2B98 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 72CF908CFF672C31A3FC353A;
 			projectDirPath = "";
 			projectRoot = "";
-			targets = (DFE91ACB89DCAC2DBF2AFAB8, ADDD83E2D3B44C9B29451C75, 701FC263D200192A87882606, 0709CBF965696B95EE7E2B98);
+			targets = (DFE91ACB89DCAC2DBF2AFAB8, ADDD83E2D3B44C9B29451C75, 701FC263D200192A87882606, 8770C5403524ECC45AF22E29, 0709CBF965696B95EE7E2B98);
 			knownRegions = (en, Base);
 		};
 	};

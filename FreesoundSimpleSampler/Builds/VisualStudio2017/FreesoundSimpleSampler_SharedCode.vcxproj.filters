@@ -2433,6 +2433,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\api_key.h">
+      <Filter>FreesoundSimpleSampler\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\defines.h">
+      <Filter>FreesoundSimpleSampler\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\FreesoundAPI.h">
       <Filter>FreesoundSimpleSampler\Source</Filter>
     </ClInclude>
@@ -2440,6 +2446,9 @@
       <Filter>FreesoundSimpleSampler\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>FreesoundSimpleSampler\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FreesoundSearchComponent.h">
       <Filter>FreesoundSimpleSampler\Source</Filter>
     </ClInclude>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

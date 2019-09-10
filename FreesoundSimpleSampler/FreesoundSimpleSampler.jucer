@@ -2,11 +2,14 @@
 
 <JUCERPROJECT id="tLyYMF" name="FreesoundSimpleSampler" projectType="audioplug"
               jucerVersion="5.4.4" companyName="Music Technology Group" companyWebsite="https://mtg.upf.edu"
-              projectLineFeed="&#10;" pluginFormats="buildAU,buildVST3" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              projectLineFeed="&#10;" pluginFormats="buildAU,buildStandalone,buildVST3"
+              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginManufacturerCode="MuTG" pluginCode="FSSS" pluginVST3Category="Sampler"
               reportAppUsage="0" displaySplashScreen="0">
   <MAINGROUP id="QomHXm" name="FreesoundSimpleSampler">
     <GROUP id="{5A6C746C-200A-B761-FF50-7B67C29ED6CF}" name="Source">
+      <FILE id="ip6lpa" name="api_key.h" compile="0" resource="0" file="Source/api_key.h"/>
+      <FILE id="d7teGY" name="defines.h" compile="0" resource="0" file="Source/defines.h"/>
       <FILE id="f1gbj3" name="FreesoundAPI.cpp" compile="1" resource="0"
             file="Source/FreesoundAPI.cpp"/>
       <FILE id="ISt9yf" name="FreesoundAPI.h" compile="0" resource="0" file="Source/FreesoundAPI.h"/>
@@ -17,6 +20,8 @@
       <FILE id="nzlUun" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="pB7o5U" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="uty41Z" name="FreesoundSearchComponent.h" compile="0" resource="0"
+            file="Source/FreesoundSearchComponent.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
