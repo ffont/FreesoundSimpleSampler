@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2017
+
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreesoundSimpleSampler - VST3", "FreesoundSimpleSampler_VST3.vcxproj", "{F49FEFCF-E199-F85D-1593-B0FDABCAF057}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B405FDB1-0C71-FF4F-74FE-62E3B170EAE1} = {B405FDB1-0C71-FF4F-74FE-62E3B170EAE1}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreesoundSimpleSampler - Shared Code", "FreesoundSimpleSampler_SharedCode.vcxproj", "{B405FDB1-0C71-FF4F-74FE-62E3B170EAE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F49FEFCF-E199-F85D-1593-B0FDABCAF057}.Debug|x64.ActiveCfg = Debug|x64
+		{F49FEFCF-E199-F85D-1593-B0FDABCAF057}.Debug|x64.Build.0 = Debug|x64
+		{F49FEFCF-E199-F85D-1593-B0FDABCAF057}.Release|x64.ActiveCfg = Release|x64
+		{F49FEFCF-E199-F85D-1593-B0FDABCAF057}.Release|x64.Build.0 = Release|x64
+		{B405FDB1-0C71-FF4F-74FE-62E3B170EAE1}.Debug|x64.ActiveCfg = Debug|x64
+		{B405FDB1-0C71-FF4F-74FE-62E3B170EAE1}.Debug|x64.Build.0 = Debug|x64
+		{B405FDB1-0C71-FF4F-74FE-62E3B170EAE1}.Release|x64.ActiveCfg = Release|x64
+		{B405FDB1-0C71-FF4F-74FE-62E3B170EAE1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
