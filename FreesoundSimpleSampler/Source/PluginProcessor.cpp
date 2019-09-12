@@ -24,10 +24,14 @@ FreesoundSimpleSamplerAudioProcessor::FreesoundSimpleSamplerAudioProcessor()
                        )
 #endif
 {
+    // Create a tmp directory where all downloaded sounds will be stored
+    tmpDownloadLocation = File::getSpecialLocation(File::tempDirectory);
 }
 
 FreesoundSimpleSamplerAudioProcessor::~FreesoundSimpleSamplerAudioProcessor()
 {
+    // Deletes the tmp directory so downloaded files do not stay there
+    tmpDownloadLocation.deleteRecursively();
 }
 
 //==============================================================================
@@ -181,6 +185,25 @@ void FreesoundSimpleSamplerAudioProcessor::setStateInformation (const void* data
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+}
+
+//==============================================================================
+void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds)
+{
+    // This method is called by the FreesoundSearchComponent when a new query has
+    // been made and new sounda have been selected for loading into the sampler.
+    // This methods downloads the sounds, sotres in tmp directory and...
+    
+    // Download the sounds
+    
+    std::cout << "Downloading new sounds" << std::endl;
+    FreesoundClient client(FREESOUND_API_KEY);
+    for (int i=0; i<sounds.size(); i++){
+        File location = tmpDownloadLocation.getChildFile(sounds[i].id).withFileExtension("ogg");
+        std::cout << location.getFullPathName() << std::endl;
+        client.downloadOGGSoundPreview(sounds[i], location);
+       
+    }
 }
 
 //==============================================================================

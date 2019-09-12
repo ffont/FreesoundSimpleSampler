@@ -11,6 +11,7 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "FreesoundAPI.h"
 
 //==============================================================================
 /**
@@ -54,6 +55,10 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    //==============================================================================
+    File tmpDownloadLocation;
+    void newSoundsReady (Array<FSSound> sounds);
 
 private:
     //==============================================================================
