@@ -32,6 +32,11 @@ FreesoundSimpleSamplerAudioProcessor::~FreesoundSimpleSamplerAudioProcessor()
 {
     // Deletes the tmp directory so downloaded files do not stay there
     tmpDownloadLocation.deleteRecursively();
+	for (int i = 0; i < downloadTasksToDelete.size(); i++) {
+	
+		delete downloadTasksToDelete.at(i);
+	
+	}
 }
 
 //==============================================================================
@@ -201,8 +206,8 @@ void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds
     for (int i=0; i<sounds.size(); i++){
         File location = tmpDownloadLocation.getChildFile(sounds[i].id).withFileExtension("ogg");
         std::cout << location.getFullPathName() << std::endl;
-        client.downloadOGGSoundPreview(sounds[i], location);
-       
+		URL::DownloadTask* downloadTask = client.downloadOGGSoundPreview(sounds[i], location);
+		downloadTasksToDelete.push_back(downloadTask);
     }
 }
 

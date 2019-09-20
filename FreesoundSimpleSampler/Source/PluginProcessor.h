@@ -61,6 +61,8 @@ public:
     void newSoundsReady (Array<FSSound> sounds);
 
 private:
+
+	std::vector<URL::DownloadTask*> downloadTasksToDelete;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreesoundSimpleSamplerAudioProcessor)
 };
