@@ -17,43 +17,8 @@
 /**
 */
 
-//class FSSamplerSound : public SamplerSound 
-//{
-//	FSSamplerSound(int sampleIndex);
-//
-//	bool appliesToNote(int) override { return true; }
-//	bool appliesToChannel(int) override { return true; }
-//
-//};
-//
-//class FSSamplerVoice : public SamplerVoice
-//{
-//	FSSamplerVoice();
-//
-//};
-//
-//
-//
-//class SamplerAudioSource : public AudioSource
-//{
-//
-//	SamplerAudioSource();
-//	void prepareToPlay(int /*samplesPerBlockExpected*/, double sampleRate) override;
-//	void getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill) override;
-//
-//private:
-//	MidiKeyboardState& keyboardState;
-//	Synthesiser sampler;
-//};
 
-class FreesoundSampler : public Synthesiser {
-public:
-	FreesoundSampler() { areSourcesSet = false; };
-	void setSources(File tmpDownloadLocation);
-	bool areSourcesSet;
-private:
-	AudioFormatManager audioFormatManager;
-};
+
 
 class FreesoundSimpleSamplerAudioProcessor  : public AudioProcessor
 {

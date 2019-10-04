@@ -117,7 +117,7 @@ void FreesoundSimpleSamplerAudioProcessor::releaseResources()
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 	
-	//sampleAudioSource.releaseResources();
+
 
 }
 
@@ -196,7 +196,6 @@ void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds
     }
 
 	setSources();
-	// sampler.setCurrentPlaybackSampleRate(getSampleRate());
 }
 
 void FreesoundSimpleSamplerAudioProcessor::setSources()
@@ -230,23 +229,4 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 
 
 
-void FreesoundSampler::setSources(File tmpDownloadLocation)
-{
-		int poliphony = 16;
-		int maxLength = 10;
-		for (int i = 0; i < poliphony; i++) {
-			addVoice(new SamplerVoice());
-		}
 
-		audioFormatManager.registerBasicFormats();
-
-		Array<File> files = tmpDownloadLocation.findChildFiles(2, false);
-		for (int i = 0; i < files.size(); i++) {
-			std::unique_ptr<AudioFormatReader> reader(audioFormatManager.createReaderFor(files[i]));
-			addSound(new SamplerSound(String(i), *reader, 48 + i, 48 + i, 0, maxLength, maxLength));
-			reader.release();
-		}
-		areSourcesSet = true;
-
-
-}
