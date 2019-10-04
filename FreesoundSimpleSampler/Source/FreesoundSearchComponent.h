@@ -120,6 +120,7 @@ public:
         if (button == &searchButton)
         {
             Array<FSSound> sounds = searchSounds();
+
             processor->newSoundsReady(sounds);
         }
     }

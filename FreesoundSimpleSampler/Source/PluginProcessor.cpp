@@ -147,9 +147,9 @@ bool FreesoundSimpleSamplerAudioProcessor::isBusesLayoutSupported (const BusesLa
 
 void FreesoundSimpleSamplerAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-	if (sampler.areSourcesSet == true) {
-		sampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
-	}
+
+	sampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+	
 }
 
 //==============================================================================
@@ -195,8 +195,30 @@ void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds
 		downloadTasksToDelete.push_back(downloadTask);
     }
 
-	sampler.setSources(tmpDownloadLocation);
+	setSources();
 	// sampler.setCurrentPlaybackSampleRate(getSampleRate());
+}
+
+void FreesoundSimpleSamplerAudioProcessor::setSources()
+{
+	int poliphony = 16;
+	int maxLength = 10;
+	for (int i = 0; i < poliphony; i++) {
+		sampler.addVoice(new SamplerVoice());
+	}
+
+	audioFormatManager.registerBasicFormats();
+
+	Array<File> files = tmpDownloadLocation.findChildFiles(2, false);
+	for (int i = 0; i < files.size(); i++) {
+		std::unique_ptr<AudioFormatReader> reader(audioFormatManager.createReaderFor(files[i]));
+		BigInteger notes;
+		notes.setRange(i * 8, i * 8 + 7, true);
+		sampler.addSound(new SamplerSound(String(i), *reader, notes, i*8, 0, maxLength, maxLength));
+		//reader.release();
+	}
+
+
 }
 
 //==============================================================================
