@@ -16,6 +16,10 @@
 //==============================================================================
 /**
 */
+
+
+
+
 class FreesoundSimpleSamplerAudioProcessor  : public AudioProcessor
 {
 public:
@@ -60,9 +64,13 @@ public:
     File tmpDownloadLocation;
     void newSoundsReady (Array<FSSound> sounds);
 
+	void setSources();
+
 private:
 
 	std::vector<URL::DownloadTask*> downloadTasksToDelete;
+	Synthesiser sampler;
+	AudioFormatManager audioFormatManager;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreesoundSimpleSamplerAudioProcessor)
 };

@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="tLyYMF" name="FreesoundSimpleSampler" projectType="audioplug"
               jucerVersion="5.4.4" companyName="Music Technology Group" companyWebsite="https://mtg.upf.edu"
-              projectLineFeed="&#10;" pluginFormats="buildAU,buildStandalone,buildVST3"
+              projectLineFeed="&#10;" pluginFormats="buildAU,buildStandalone,buildVST,buildVST3"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginManufacturerCode="MuTG" pluginCode="FSSS" pluginVST3Category="Sampler"
               reportAppUsage="0" displaySplashScreen="0">
@@ -89,6 +89,7 @@
   </MODULES>
   <LIVE_SETTINGS>
     <OSX/>
+    <WINDOWS/>
   </LIVE_SETTINGS>
   <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
 </JUCERPROJECT>

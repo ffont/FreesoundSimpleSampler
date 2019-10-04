@@ -526,6 +526,9 @@ public:
      */
     
     URL getOGGPreviewURL();
+
+	URL getMP3PreviewURL();
+
 };
 
 /**
@@ -873,6 +876,9 @@ public:
      */
     
     URL::DownloadTask* downloadOGGSoundPreview(FSSound sound, const File &location, URL::DownloadTask::Listener * listener = nullptr);
+
+	URL::DownloadTask* downloadMP3SoundPreview(FSSound sound, const File &location, URL::DownloadTask::Listener * listener = nullptr);
+
 
 	/**
 	 * \fn	int FreesoundClient::uploadSound(const File &fileToUpload, String tags, String description, String name = String(), String license = "Creative Commons 0", String pack = String(), String geotag = String(), Callback cb = [] {});

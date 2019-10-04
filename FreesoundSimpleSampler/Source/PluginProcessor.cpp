@@ -24,8 +24,9 @@ FreesoundSimpleSamplerAudioProcessor::FreesoundSimpleSamplerAudioProcessor()
                        )
 #endif
 {
-    // Create a tmp directory where all downloaded sounds will be stored
-    tmpDownloadLocation = File::getSpecialLocation(File::tempDirectory);
+	tmpDownloadLocation = File::getSpecialLocation(File::userDocumentsDirectory).getChildFile("FreesoundSimpleSampler");
+	tmpDownloadLocation.deleteRecursively();
+	tmpDownloadLocation.createDirectory();
 }
 
 FreesoundSimpleSamplerAudioProcessor::~FreesoundSimpleSamplerAudioProcessor()
@@ -106,12 +107,18 @@ void FreesoundSimpleSamplerAudioProcessor::prepareToPlay (double sampleRate, int
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+	sampler.setCurrentPlaybackSampleRate(sampleRate);
+
+	
 }
 
 void FreesoundSimpleSamplerAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
+	
+
+
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -140,31 +147,9 @@ bool FreesoundSimpleSamplerAudioProcessor::isBusesLayoutSupported (const BusesLa
 
 void FreesoundSimpleSamplerAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+	sampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+	
 }
 
 //==============================================================================
@@ -204,11 +189,35 @@ void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds
     std::cout << "Downloading new sounds" << std::endl;
     FreesoundClient client(FREESOUND_API_KEY);
     for (int i=0; i<sounds.size(); i++){
-        File location = tmpDownloadLocation.getChildFile(sounds[i].id).withFileExtension("ogg");
+        File location = tmpDownloadLocation.getChildFile(sounds[i].id).withFileExtension("mp3");
         std::cout << location.getFullPathName() << std::endl;
-		URL::DownloadTask* downloadTask = client.downloadOGGSoundPreview(sounds[i], location);
+		URL::DownloadTask* downloadTask = client.downloadMP3SoundPreview(sounds[i], location);
 		downloadTasksToDelete.push_back(downloadTask);
     }
+
+	setSources();
+}
+
+void FreesoundSimpleSamplerAudioProcessor::setSources()
+{
+	int poliphony = 16;
+	int maxLength = 10;
+	for (int i = 0; i < poliphony; i++) {
+		sampler.addVoice(new SamplerVoice());
+	}
+
+	audioFormatManager.registerBasicFormats();
+
+	Array<File> files = tmpDownloadLocation.findChildFiles(2, false);
+	for (int i = 0; i < files.size(); i++) {
+		std::unique_ptr<AudioFormatReader> reader(audioFormatManager.createReaderFor(files[i]));
+		BigInteger notes;
+		notes.setRange(i * 8, i * 8 + 7, true);
+		sampler.addSound(new SamplerSound(String(i), *reader, notes, i*8, 0, maxLength, maxLength));
+		//reader.release();
+	}
+
+
 }
 
 //==============================================================================
@@ -217,3 +226,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new FreesoundSimpleSamplerAudioProcessor();
 }
+
+
+
+
