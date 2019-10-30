@@ -14,7 +14,7 @@
 //==============================================================================
 FreesoundSimpleSamplerAudioProcessor::FreesoundSimpleSamplerAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
+     : 		 AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
                        .withInput  ("Input",  AudioChannelSet::stereo(), true)
@@ -27,6 +27,8 @@ FreesoundSimpleSamplerAudioProcessor::FreesoundSimpleSamplerAudioProcessor()
 	tmpDownloadLocation = File::getSpecialLocation(File::userDocumentsDirectory).getChildFile("FreesoundSimpleSampler");
 	tmpDownloadLocation.deleteRecursively();
 	tmpDownloadLocation.createDirectory();
+	midicounter = 1;
+	startTime = Time::getMillisecondCounterHiRes() * 0.001;
 }
 
 FreesoundSimpleSamplerAudioProcessor::~FreesoundSimpleSamplerAudioProcessor()
@@ -147,7 +149,8 @@ bool FreesoundSimpleSamplerAudioProcessor::isBusesLayoutSupported (const BusesLa
 
 void FreesoundSimpleSamplerAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-
+	midiMessages.addEvents(midiFromEditor, 0, -1, 0);
+	midiFromEditor.clear();
 	sampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 	
 }
@@ -218,6 +221,27 @@ void FreesoundSimpleSamplerAudioProcessor::setSources()
 	}
 
 
+}
+
+void FreesoundSimpleSamplerAudioProcessor::addToMidiBuffer(int notenumber)
+{
+
+	MidiMessage message = MidiMessage::noteOn(10, notenumber, (uint8)100);
+	double timestamp = Time::getMillisecondCounterHiRes() * 0.001 - getStartTime();
+	message.setTimeStamp(timestamp);
+
+	auto sampleNumber = (int)(timestamp * getSampleRate());
+
+	midiFromEditor.addEvent(message,sampleNumber);
+
+	auto messageOff = MidiMessage::noteOff(message.getChannel(), message.getNoteNumber());
+	messageOff.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001 - startTime);
+	midiFromEditor.addEvent(messageOff,sampleNumber+1);
+
+}
+
+double FreesoundSimpleSamplerAudioProcessor::getStartTime(){
+	return startTime;
 }
 
 //==============================================================================
