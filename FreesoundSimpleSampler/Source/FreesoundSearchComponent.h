@@ -65,10 +65,20 @@ public:
     void resized() override {
         table.setBounds(getLocalBounds());
     }
+
+	void cellClicked(int rowNumber, int columnId, const MouseEvent &) {
+		processor->addToMidiBuffer(rowNumber * 8);
+	}
+
+	void setProcessor(FreesoundSimpleSamplerAudioProcessor* p)
+	{
+		processor = p;
+	}
     
 private:
     TableListBox table;
     std::vector<StringArray> data;
+	FreesoundSimpleSamplerAudioProcessor * processor;
 };
 
 
@@ -98,6 +108,7 @@ public:
     void setProcessor (FreesoundSimpleSamplerAudioProcessor* p)
     {
         processor = p;
+		searchResults.setProcessor(p);
     }
     
     void paint (Graphics& g) override

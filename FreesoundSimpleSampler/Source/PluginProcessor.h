@@ -65,12 +65,22 @@ public:
     void newSoundsReady (Array<FSSound> sounds);
 
 	void setSources();
+	void addToMidiBuffer(int notenumber);
+
+	double getStartTime();
+
+
 
 private:
 
 	std::vector<URL::DownloadTask*> downloadTasksToDelete;
 	Synthesiser sampler;
 	AudioFormatManager audioFormatManager;
+	MidiBuffer midiFromEditor;
+	long midicounter;
+	double startTime;
+
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreesoundSimpleSamplerAudioProcessor)
 };
