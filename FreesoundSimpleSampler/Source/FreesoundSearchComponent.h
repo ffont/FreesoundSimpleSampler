@@ -108,6 +108,7 @@ public:
     void setProcessor (FreesoundSimpleSamplerAudioProcessor* p)
     {
         processor = p;
+		searchResults.setProcessor(p);
     }
     
     void paint (Graphics& g) override

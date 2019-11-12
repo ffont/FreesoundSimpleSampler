@@ -149,9 +149,10 @@ bool FreesoundSimpleSamplerAudioProcessor::isBusesLayoutSupported (const BusesLa
 
 void FreesoundSimpleSamplerAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-	midiMessages.addEvents(midiFromEditor, 0, -1, 0);
+	midiMessages.addEvents(midiFromEditor, 0, INT_MAX, 0);
 	midiFromEditor.clear();
 	sampler.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+	midiMessages.clear();
 	
 }
 
@@ -234,9 +235,9 @@ void FreesoundSimpleSamplerAudioProcessor::addToMidiBuffer(int notenumber)
 
 	midiFromEditor.addEvent(message,sampleNumber);
 
-	auto messageOff = MidiMessage::noteOff(message.getChannel(), message.getNoteNumber());
-	messageOff.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001 - startTime);
-	midiFromEditor.addEvent(messageOff,sampleNumber+1);
+	//auto messageOff = MidiMessage::noteOff(message.getChannel(), message.getNoteNumber());
+	//messageOff.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001 - startTime);
+	//midiFromEditor.addEvent(messageOff,sampleNumber+1);
 
 }
 
