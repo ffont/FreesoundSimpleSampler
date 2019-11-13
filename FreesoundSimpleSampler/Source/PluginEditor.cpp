@@ -34,11 +34,11 @@ void FreesoundSimpleSamplerAudioProcessorEditor::paint (Graphics& g)
 
 void FreesoundSimpleSamplerAudioProcessorEditor::resized()
 {
-    float width = 800;
+    float width = 450;
     float height = 450;
     float unitMargin = 10;
     
-    freesoundSearchComponent.setBounds (unitMargin,  unitMargin, (width / 2) - (unitMargin / 2), height - 2 * unitMargin);
+    freesoundSearchComponent.setBounds (unitMargin,  unitMargin, width - (unitMargin * 2), height - 2 * unitMargin);
     
     setSize(width, height);
 }

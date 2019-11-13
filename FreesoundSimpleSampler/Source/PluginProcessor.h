@@ -62,13 +62,15 @@ public:
     
     //==============================================================================
     File tmpDownloadLocation;
-    void newSoundsReady (Array<FSSound> sounds);
+	void newSoundsReady(Array<FSSound> sounds, String textQuery, std::vector<juce::StringArray> soundInfo);
 
 	void setSources();
 	void addToMidiBuffer(int notenumber);
 
 	double getStartTime();
-
+	bool isArrayNotEmpty();
+	String getQuery();
+	std::vector<juce::StringArray> getData();
 
 
 private:
@@ -79,6 +81,8 @@ private:
 	MidiBuffer midiFromEditor;
 	long midicounter;
 	double startTime;
+	String query;
+	std::vector<juce::StringArray> soundsArray;
 
 
     //==============================================================================
