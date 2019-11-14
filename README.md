@@ -27,5 +27,6 @@ Authors
 -------
 António Ramires
 antonio.ramires@upf.edu
+
 Frederic Font
 frederic.font@upf.edu
