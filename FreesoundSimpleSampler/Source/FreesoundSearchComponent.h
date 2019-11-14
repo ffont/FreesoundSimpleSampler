@@ -73,6 +73,14 @@ public:
 	void setProcessor(FreesoundSimpleSamplerAudioProcessor* p)
 	{
 		processor = p;
+		if (p->isArrayNotEmpty()) {
+			data = p->getData();
+			updateContent();
+		}
+	}
+
+	std::vector<StringArray> getData() {
+		return data;
 	}
     
 private:
@@ -109,6 +117,7 @@ public:
     {
         processor = p;
 		searchResults.setProcessor(p);
+		searchInput.setText(p->getQuery(), dontSendNotification);
     }
     
     void paint (Graphics& g) override
@@ -132,7 +141,7 @@ public:
         {
             Array<FSSound> sounds = searchSounds();
 
-            processor->newSoundsReady(sounds);
+            processor->newSoundsReady(sounds, searchInput.getText(true), searchResults.getData());
         }
     }
     

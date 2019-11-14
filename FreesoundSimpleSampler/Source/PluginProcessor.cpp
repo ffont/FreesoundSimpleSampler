@@ -182,7 +182,7 @@ void FreesoundSimpleSamplerAudioProcessor::setStateInformation (const void* data
 }
 
 //==============================================================================
-void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds)
+void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds, String textQuery, std::vector<juce::StringArray> soundInfo)
 {
     // This method is called by the FreesoundSearchComponent when a new query has
     // been made and new sounda have been selected for loading into the sampler.
@@ -200,6 +200,9 @@ void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds
     }
 
 	setSources();
+	query = textQuery;
+	soundsArray = soundInfo;
+
 }
 
 void FreesoundSimpleSamplerAudioProcessor::setSources()
@@ -210,7 +213,9 @@ void FreesoundSimpleSamplerAudioProcessor::setSources()
 		sampler.addVoice(new SamplerVoice());
 	}
 
-	audioFormatManager.registerBasicFormats();
+	if(audioFormatManager.getNumKnownFormats() == 0){
+		audioFormatManager.registerBasicFormats();
+	}
 
 	Array<File> files = tmpDownloadLocation.findChildFiles(2, false);
 	for (int i = 0; i < files.size(); i++) {
@@ -243,6 +248,22 @@ void FreesoundSimpleSamplerAudioProcessor::addToMidiBuffer(int notenumber)
 
 double FreesoundSimpleSamplerAudioProcessor::getStartTime(){
 	return startTime;
+}
+
+bool FreesoundSimpleSamplerAudioProcessor::isArrayNotEmpty()
+{
+	return soundsArray.size() != 0;
+}
+
+String FreesoundSimpleSamplerAudioProcessor::getQuery()
+{
+	return query;
+}
+
+std::vector<juce::StringArray> FreesoundSimpleSamplerAudioProcessor::getData()
+{
+	
+	return soundsArray;
 }
 
 //==============================================================================
