@@ -16,16 +16,19 @@ The user interface of this application is shown below for easy referencing.
 ![FreesoundSimpleSamplerUI](FreesoundSimpleSampler.PNG "User interface of the FreesoundSimpleSampler")
 
 
-Installation
+Building
 -------
 
-In order to install Freesound Uploader, the JUCE framework should be downloaded, installed and setup. A tutorial on how to do this is available in https://docs.juce.com/master/tutorial_new_projucer_project.html
+In order to build Freesound Uploader, the JUCE framework should be downloaded, installed and setup. A tutorial on how to do this is available in https://docs.juce.com/master/tutorial_new_projucer_project.html
 Firstly, the "Getting Started" section should be performed. Then, the FreesoundSimpleSampler.juce file should be opened with the projucer.
 
 Before building it you should duplicate the file `FreesoundSimpleSampler/Source/api_key.example.h`, request a Freesound API key and add it to that file, and rename it to `FreesoundSimpleSampler/Source/api_key.h`.
 
 The final step is setting up the desired plugin export formats in the Projucer project settings and, finally you should open this project on the desired Juce exporter and build the solution.
 In case a VST2 build of the plugin is desired, a VST2 SDK should be provided and linked in the Projucer global paths.
+
+**NOTE**: the current version has been tested to work properly with JUCE 5.4.7, but will probably not work on older versions.
+
 
 Authors
 -------
