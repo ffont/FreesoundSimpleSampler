@@ -75,7 +75,7 @@ public:
 
 private:
 
-	std::vector<URL::DownloadTask*> downloadTasksToDelete;
+	std::vector<std::unique_ptr<URL::DownloadTask>> downloadTasksToDelete;
 	Synthesiser sampler;
 	AudioFormatManager audioFormatManager;
 	MidiBuffer midiFromEditor;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="tLyYMF" name="FreesoundSimpleSampler" projectType="audioplug"
-              jucerVersion="5.4.4" companyName="Music Technology Group" companyWebsite="https://mtg.upf.edu"
+              jucerVersion="5.4.7" companyName="Music Technology Group" companyWebsite="https://mtg.upf.edu"
               projectLineFeed="&#10;" pluginFormats="buildAU,buildStandalone,buildVST,buildVST3"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginManufacturerCode="MuTG" pluginCode="FSSS" pluginVST3Category="Sampler"
