@@ -37,7 +37,7 @@ FreesoundSimpleSamplerAudioProcessor::~FreesoundSimpleSamplerAudioProcessor()
     tmpDownloadLocation.deleteRecursively();
 	for (int i = 0; i < downloadTasksToDelete.size(); i++) {
 	
-		delete downloadTasksToDelete.at(i);
+        downloadTasksToDelete.at(i).reset();
 	
 	}
 }
@@ -195,8 +195,8 @@ void FreesoundSimpleSamplerAudioProcessor::newSoundsReady (Array<FSSound> sounds
     for (int i=0; i<sounds.size(); i++){
         File location = tmpDownloadLocation.getChildFile(sounds[i].id).withFileExtension("mp3");
         std::cout << location.getFullPathName() << std::endl;
-		URL::DownloadTask* downloadTask = client.downloadMP3SoundPreview(sounds[i], location);
-		downloadTasksToDelete.push_back(downloadTask);
+		std::unique_ptr<URL::DownloadTask> downloadTask = client.downloadMP3SoundPreview(sounds[i], location);
+		downloadTasksToDelete.push_back(std::move(downloadTask));
     }
 
 	setSources();
